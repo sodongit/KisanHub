@@ -1,0 +1,25 @@
+<div [ngClass]="['header']">
+  <h2>KisanHub Weather Chart</h2>
+</div>
+<div [ngClass]="['menu']">
+  <div [ngClass]="['metric']">
+    <app-metric-select (metric)="setMetric($event)"></app-metric-select>
+  </div>
+  <div [ngClass]="['area']">
+    <app-area-select (area)="setArea($event)"></app-area-select>
+  </div>
+  <div [ngClass]="['from-date']">
+    <app-year-month-calendar [dateText]="'From Month, Year'"
+                             (chosenDate)="setFromDate($event)"
+    ></app-year-month-calendar>
+  </div>
+  <div [ngClass]="['to-date']">
+    <app-year-month-calendar [dateText]="'To Month, Year'"
+                             (chosenDate)="setToDate($event)"
+    ></app-year-month-calendar>
+  </div>
+</div>
+<div [ngClass]="['chart']">
+  <app-chart [chartData]="chartData.asObservable()" [yAxisLabel]="selectedMetric"
+             [xAxisLabel]="selectedArea"></app-chart>
+</div>
