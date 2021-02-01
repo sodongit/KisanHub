@@ -1,0 +1,8 @@
+<mat-form-field appearance="fill">
+  <mat-label>Select an area</mat-label>
+  <mat-select [(value)]="selectedArea" (valueChange)="setArea($event)">
+    <mat-option *ngFor="let area of areas" [value]="area.value">
+      {{area.text}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
